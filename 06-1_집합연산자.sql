@@ -23,10 +23,35 @@ SELECT
 FROM employees
 WHERE department_id = 20;
 
+SELECT
+    employee_id, first_name
+FROM employees
+WHERE hire_date LIKE '04%'
+INTERSECT
+SELECT
+    employee_id, first_name
+FROM employees
+WHERE department_id = 20;
 
+SELECT
+    employee_id, first_name
+FROM employees
+WHERE hire_date LIKE '04%'
+MINUS
+SELECT
+    employee_id, first_name
+FROM employees
+WHERE department_id = 20;
 
-
-
+SELECT
+    employee_id, first_name
+FROM employees
+WHERE department_id = 20
+MINUS
+SELECT
+    employee_id, first_name
+FROM employees
+WHERE hire_date LIKE '04%';
 
 
 
