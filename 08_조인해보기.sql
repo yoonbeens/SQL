@@ -91,13 +91,18 @@ employees 테이블에는 존재하고, department 테이블에는 존재하지 않아도
 내부조인을 우선적으로 인식합니다.
 */
 
+/*
+-- 외부 조인 진행 시 모든 조건에 (+)를 붙여야 외부 조인이 유지됩니다.
+-- 일반 조건에도 (+)를 붙이지 않으면 외부 조인이 풀리는 현상이 발생.(데이터 누락)
+*/
+
 SELECT
     e.employee_id, e.first_name,
     e.department_id,
     j.start_date, j.end_date, j.job_id
 FROM employees e, job_history j
 WHERE e.employee_id = j.employee_id(+)
-AND j.department_id = 80;
+AND j.department_id(+) = 80;
 
 
 
