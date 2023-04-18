@@ -106,8 +106,9 @@ AND j.department_id(+) = 80;
 
 
 
-
-
+-- OUTER JOIN은 기준이 되는 테이블은 모두 출력이 되고,
+-- INNER JOIN 된다
+-- 조건은 INNER JOIN에 적용
 
 
 
