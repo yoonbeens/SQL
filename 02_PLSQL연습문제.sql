@@ -52,9 +52,13 @@ BEGIN
     INSERT INTO emps
         (employee_id, last_name, email, hire_date, job_id)
     VALUES
-        (v_emp_id + 1, steven, stevenjobs, sysdate, CEO);
+        (v_emp_id + 1, 'steven', 'stevenjobs', sysdate, 'CEO');
+        
+    COMMIT;
+        
 END;
 
+SELECT * FROM emps;
 
 DROP TABLE emps;
 CREATE TABLE emps AS (SELECT * FROM employees WHERE 1=2);

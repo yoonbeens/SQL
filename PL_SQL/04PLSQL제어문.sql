@@ -83,21 +83,21 @@ BEGIN
     -- department_id는 10, 20, 30으로 올라가기 때문에 ROUND로 반올림 (-1로 1의 자리에서 반올림 설정)
     
     SELECT
-        salary
+        salary, commission_pct
     INTO 
-        v_salary
+        v_salary, v_commission
     FROM employees
     WHERE department_id = v_department_id
     AND ROWNUM = 1; -- 첫째 값만 구해서 변수에 저장하기 위해.
 
     dbms_output.put_line(v_salary);
     
-    IF v_salary <= 5000 THEN
-        dbms_output.put_line('낮음');
-    ELSIF v_salary <= 9000 THEN
-        dbms_output.put_line('중간');
+    IF v_commission > 0 THEN
+        IF v_commission > 0.15 THEN
+            dbms_output.put_line(v_salary * v_commission);
+        END IF;
     ELSE
-        dbms_output.put_line('높음');
+        dbms_output.put_line(v_salary);
     END IF;
 END;
 
